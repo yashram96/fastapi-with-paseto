@@ -23,7 +23,8 @@ fastapi user authentication using pasteo
                 role varchar NOT NULL,
                 created_at timestamp default now(),
                 updated_at timestamp default now()
-            ); 
+            );
+    </code>
 
 ## Setup fastapi
 1. Install required dependencies using `pip install -r requirements.txt`
@@ -37,17 +38,20 @@ fastapi user authentication using pasteo
         @app.get("/")
         async def root():
             return {"message": "Hello World"}
+    </code>
 
 3. Run `uvicorn app.main:app --reload` to run fastapi server. Navigate to http://127.0.0.1:8000 to check the server. Hola! you would see below json in your browser which means fast api is running successfully 
     <code>
 
         {"message":"Hello World"}
+    </code>
 
 ## Connect database 
 1. Update `SQLALCHEMY_DATABASE_URL` in `connectdb.py` with your database credentials 
    <code>
 
         postgresql://<username>:<password>@<host>:5432/<database_name>
+   </code>
 
 ## Create ORM model for table 
 1. Create orm model in `models.py` for `core.users` table to interact without raw sql commands 
