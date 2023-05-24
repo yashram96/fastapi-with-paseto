@@ -11,16 +11,19 @@ fastapi user authentication using pasteo
 3. Lets create `users` table 
     <code>
 
-        CREATE DATABASE test;
         CREATE USER yashram WITH PASSWORD <password>;
         CREATE DATABASE test WITH OWNER yashram; 
         CREATE SCHEMA core AUTHORIZATION yashram; 
         CREATE TABLE core.users ( 
                 id serial NOT NULL PRIMARY KEY,
-                name varchar NOT NULL ,
-                created_at timestamp default now()
+                username varchar unique NOT NULL ,
+                email varchar unique NOT NULL,
+                password varchar NOT NULL,
+                firstname varchar NOT NULL,
+                role varchar NOT NULL,
+                created_at timestamp default now(),
+                updated_at timestamp default now()
             ); 
-    
 
 ## Setup fastapi
 1. Install required dependencies using `pip install -r requirements.txt`
@@ -39,3 +42,18 @@ fastapi user authentication using pasteo
     <code>
 
         {"message":"Hello World"}
+
+## Connect database 
+1. Update `SQLALCHEMY_DATABASE_URL` in `connectdb.py` with your database credentials 
+   <code>
+
+        postgresql://<username>:<password>@<host>:5432/<database_name>
+
+## Create ORM model for table 
+1. Create orm model in `models.py` for `core.users` table to interact without raw sql commands 
+
+## Create Pydantic models
+1. Create `users` related pydantic models in `request_scemas.py` inorder to validate the response in/out through server.
+
+## Create user-signup route
+1. Create 
