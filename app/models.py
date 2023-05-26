@@ -7,7 +7,7 @@ from sqlalchemy.sql.sqltypes import TIMESTAMP, NUMERIC
 
 class Users(Base):
     __tablename__ = "users"
-    __table_args__ = {'schema': 'core'}
+    __table_args__ = {'schema': 'fastapi_pasteo'}
 
     id = Column(Integer, primary_key = True, nullable = False ) 
     username = Column(String , unique =True) 

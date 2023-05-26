@@ -12,9 +12,9 @@ FastApi user authentication using pasteo using PostgresDB
     <code>
 
         CREATE USER yashram WITH PASSWORD <password>;
-        CREATE DATABASE test WITH OWNER yashram; 
-        CREATE SCHEMA core AUTHORIZATION yashram; 
-        CREATE TABLE core.users ( 
+        CREATE DATABASE practice WITH OWNER yashram; 
+        CREATE SCHEMA fastapi_pasteo AUTHORIZATION yashram; 
+        CREATE TABLE fastapi_pasteo.users ( 
                 id serial NOT NULL PRIMARY KEY,
                 username varchar unique NOT NULL ,
                 email varchar unique NOT NULL,
@@ -55,7 +55,7 @@ Note: Make sure you login to new user before creating table
    </code>
 
 ## Create ORM model for table 
-1. Create orm model in `models.py` for `core.users` table to interact without raw sql commands 
+1. Create orm model in `models.py` for `fastapi_pasteo.users` table to interact without raw sql commands 
 
 ## Create Pydantic models
 1. Create `users` related pydantic models in `request_schemas.py` inorder to validate the response in/out through server.
