@@ -1,5 +1,5 @@
-# fastapi-pasteo
-FastApi user authentication using pasteo using PostgresDB
+# fastapi-paseto
+FastApi user authentication using paseto using PostgresDB
 
 ## Initial setup 
 1. Create virtual environment with `python3 -m venv venv`
@@ -13,8 +13,8 @@ FastApi user authentication using pasteo using PostgresDB
 
         CREATE USER yashram WITH PASSWORD <password>;
         CREATE DATABASE practice WITH OWNER yashram; 
-        CREATE SCHEMA fastapi_pasteo AUTHORIZATION yashram; 
-        CREATE TABLE fastapi_pasteo.users ( 
+        CREATE SCHEMA fastapi_paseto AUTHORIZATION yashram; 
+        CREATE TABLE fastapi_paseto.users ( 
                 id serial NOT NULL PRIMARY KEY,
                 username varchar unique NOT NULL ,
                 email varchar unique NOT NULL,
@@ -55,7 +55,7 @@ Note: Make sure you login to new user before creating table
    </code>
 
 ## Create ORM model for table 
-1. Create orm model in `models.py` for `fastapi_pasteo.users` table to interact without raw sql commands 
+1. Create orm model in `models.py` for `fastapi_paseto.users` table to interact without raw sql commands 
 
 ## Create Pydantic models
 1. Create `users` related pydantic models in `request_schemas.py` inorder to validate the response in/out through server.
